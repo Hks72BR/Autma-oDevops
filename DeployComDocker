@@ -1,0 +1,19 @@
+FROM node:14
+
+# Criar diretório de trabalho
+WORKDIR /usr/src/app
+
+# Copiar dependências
+COPY package*.json ./
+
+# Instalar dependências
+RUN npm install
+
+# Copiar código fonte
+COPY . .
+
+# Expor a porta 3000
+EXPOSE 3000
+
+# Comando para rodar a aplicação
+CMD [ "node", "server.js" ]
